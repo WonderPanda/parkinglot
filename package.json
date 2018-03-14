@@ -17,6 +17,7 @@
     "inversify-binding-decorators": "^3.2.0",
     "inversify-express-utils": "^5.2.1",
     "pretty-json": "^0.1.1",
+    "prettyjson": "^1.2.1",
     "reflect-metadata": "^0.1.12",
     "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
@@ -26,6 +27,7 @@
     "@types/inversify-express-utils": "^2.0.0",
     "@types/mocha": "^2.2.48",
     "@types/node": "^9.4.7",
+    "@types/prettyjson": "^0.0.28",
     "nodemon": "^1.17.2",
     "npm-run-all": "^4.1.2",
     "tslint": "^5.9.1"

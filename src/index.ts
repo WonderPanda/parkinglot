@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as express from 'express';
 
 import { InversifyExpressServer, getRouteInfo } from 'inversify-express-utils';
+import * as prettyjson from 'prettyjson';
 
 import { container } from './ioc/ioc';
 
@@ -18,4 +19,7 @@ server.setConfig((app) => {
 
 const PORT = 1337;
 const app = server.build();
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+   console.log(`Server running on port ${PORT}`);
+   console.log(prettyjson.render(getRouteInfo(container)));
+});
