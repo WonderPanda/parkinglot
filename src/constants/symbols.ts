@@ -1,3 +1,5 @@
 export const TYPES = {
-   TestService: Symbol.for("TestService")
+   TicketService: Symbol.for("TicketService"),
+   TicketRepository: Symbol.for("TicketRepository"),
+   GarageService: Symbol.for("GarageService"),
 }
