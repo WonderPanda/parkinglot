@@ -1,17 +1,17 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\jesse\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test
+  /usr/local/Cellar/node/8.9.1/bin/node /Users/jessecarter/.yarn/bin/yarn.js test
 
 PATH: 
-  C:\Users\jesse\Downloads\cmder_mini\bin;C:\Users\jesse\Downloads\cmder_mini\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\jesse\Downloads\cmder_mini\bin;C:\Users\jesse\Downloads\cmder_mini\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\jesse\Downloads\cmder_mini\vendor\conemu-maximus5;C:\Users\jesse\Downloads\cmder_mini\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Docker\Docker\Resources\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\jesse\AppData\Local\Microsoft\WindowsApps;C:\Users\jesse\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\bin;;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\Users\jesse\Downloads\cmder_mini\;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\Users\jesse\Downloads\cmder_mini\
+  /Users/jessecarter/.yarn/bin:/Users/jessecarter/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/jessecarter/.yarn/bin:/Users/jessecarter/.config/yarn/global/node_modules/.bin:/usr/local/opt/fzf/bin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  8.9.1
 
 Platform: 
-  win32 x64
+  darwin x64
 
 npm manifest: 
   {
@@ -2709,15 +2709,15 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
-  Command: C:\Windows\system32\cmd.exe
-  Arguments: /d /s /c mocha -r ts-node/register "src/**/*.spec.ts"
-  Directory: C:\Code\parkinglot\typescript
+  Exit code: 2
+  Command: sh
+  Arguments: -c mocha -r ts-node/register "src/**/*.spec.ts"
+  Directory: /Users/jessecarter/Code/parkinglot
   Output:
   
-      at ProcessTermError.MessageError (C:\Users\jesse\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\jesse\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\jesse\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at ProcessTermError.MessageError (/Users/jessecarter/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/jessecarter/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/jessecarter/.yarn/lib/cli.js:30281:17)
       at emitTwo (events.js:126:13)
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)

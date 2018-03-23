@@ -7,16 +7,16 @@ import { TicketResponseType } from '../domain/tickets-domain';
 
 @controller('/tickets')
 export class TicketController {
-   constructor(@inject(TYPES.TicketService) private ticketService: ITicketService) {}
+    constructor(@inject(TYPES.TicketService) private ticketService: ITicketService) { }
 
-   @httpGet('/:id')
-   public getTicketCost(@requestParam('id') id: string, @response() res: express.Response) {
-      res.json({message: 'Hello World'})
-   }
+    @httpGet('/:id')
+    public getTicketCost(@requestParam('id') id: string, @response() res: express.Response) {
+        res.json({ message: 'Hello World' })
+    }
 
-   @httpPost('')
-   public async generateTicket(@response() res: express.Response) {
-      const ticketResponse = await this.ticketService.tryGetTicket();
-      res.json(ticketResponse);
-   }
+    @httpPost('')
+    public async generateTicket(@response() res: express.Response) {
+        const ticketResponse = await this.ticketService.tryGetTicket();
+        res.json(ticketResponse);
+    }
 }

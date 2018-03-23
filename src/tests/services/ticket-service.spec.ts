@@ -8,38 +8,40 @@ import { TicketRepository, ITicketRepository } from '../../repositories/ticket-r
 import { TicketResponseType, Ticket } from '../../domain/tickets-domain';
 
 describe('TicketService', () => {
-   it('should not generate a ticket if the garage is full', async () => {
-      const garageServiceMock = moq.Mock.ofType<IGarageService>(GarageService);
-      garageServiceMock.setup(x => x.checkCapacity()).returns(() => Promise.resolve(0));
+    it('should not generate a ticket if the garage is full', async () => {
+        const garageServiceMock = moq.Mock.ofType<IGarageService>(GarageService);
+        garageServiceMock
+            .setup(x => x.checkCapacity())
+            .returns(() => Promise.resolve(0));
 
-      const ticketRepoMock = moq.Mock.ofType<ITicketRepository>(TicketRepository, 
-         moq.MockBehavior.Strict);
+        const ticketRepoMock = moq.Mock.ofType<ITicketRepository>(TicketRepository,
+            moq.MockBehavior.Strict);
 
-      const sut = new TicketService(garageServiceMock.object, ticketRepoMock.object);
-      let ticketResponse = await sut.tryGetTicket();
-      expect(ticketResponse.response).to.eql(TicketResponseType.GarageFull);
-      ticketResponse = <Ticket> ticketResponse;
-   }),
-   
-   it('should return a ticket if the garage is not empty', async () => {
-      const garageServiceMock = moq.Mock.ofType<IGarageService>(GarageService);
-      garageServiceMock.setup(x => x.checkCapacity())
-         .returns(() => Promise.resolve(3))
-         .verifiable(moq.Times.once());
+        const sut = new TicketService(garageServiceMock.object, ticketRepoMock.object);
+        let ticketResponse = await sut.tryGetTicket();
+        expect(ticketResponse.response).to.eql(TicketResponseType.GarageFull);
+        ticketResponse = <Ticket>ticketResponse;
+    }),
 
-      const ticketRepoMock = moq.Mock.ofType<ITicketRepository>(TicketRepository);
-      ticketRepoMock.setup(x => x.createTicket())
-         .returns(() => Promise.resolve('123'))
-         .verifiable(moq.Times.once());
+    it('should return a ticket if the garage is not empty', async () => {
+        const garageServiceMock = moq.Mock.ofType<IGarageService>(GarageService);
+        garageServiceMock.setup(x => x.checkCapacity())
+            .returns(() => Promise.resolve(3))
+            .verifiable(moq.Times.once());
 
-      const sut = new TicketService(garageServiceMock.object, ticketRepoMock.object);
-      let ticketResponse = await sut.tryGetTicket();
-      expect(ticketResponse.response).to.eql(TicketResponseType.TicketGenerated);
-      
-      ticketResponse = <Ticket> ticketResponse;
-      expect(ticketResponse.ticketNumber).to.eql('123');
+        const ticketRepoMock = moq.Mock.ofType<ITicketRepository>(TicketRepository);
+        ticketRepoMock.setup(x => x.createTicket())
+            .returns(() => Promise.resolve('123'))
+            .verifiable(moq.Times.once());
 
-      garageServiceMock.verifyAll();
-      ticketRepoMock.verifyAll();
-   })
+        const sut = new TicketService(garageServiceMock.object, ticketRepoMock.object);
+        let ticketResponse = await sut.tryGetTicket();
+        expect(ticketResponse.response).to.eql(TicketResponseType.TicketGenerated);
+
+        ticketResponse = <Ticket>ticketResponse;
+        expect(ticketResponse.ticketNumber).to.eql('123');
+
+        garageServiceMock.verifyAll();
+        ticketRepoMock.verifyAll();
+    })
 });
